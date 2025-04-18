@@ -80,7 +80,7 @@ exports.deleteTaskList = async (req, res) => {
       return res.status(403).json({ message: 'You are not authorized to delete this task list' });
     }
 
-    await tasklist.destroy(); // Automatic cascade for tasks, there should no longer be any issues whatsoever
+    await tasklist.destroy();
     res.json({ message: 'Task list deleted successfully' });
   } catch (err) {
     res.status(500).json({ message: 'Error deleting task list', error: err.message });

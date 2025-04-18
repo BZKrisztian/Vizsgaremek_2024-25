@@ -103,7 +103,6 @@
   border-left: 4px solid green;
 }
 
-/* Responsive: Maintain mobile layout */
 @media (max-width: 600px) {
   .task-item {
     flex: 1 1 100%;

@@ -10,8 +10,6 @@ import { environment } from '../../environments/environment';
 export class AuthService {
   private apiURL = environment.apiUrl;
 
-  // BehaviorSubject ==> container 4 current user(be it regular or admin = separate containers used depending on user type)
-  // currentXY$ ==> observable 4 current user
   private currentUser_BSub: BehaviorSubject<User | null>;
   public currentUser$: Observable<User | null>;
 

@@ -2,7 +2,6 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { environment } from '../../../environments/environment';
-import { subscribeOn } from 'rxjs';
 import { CommonModule } from '@angular/common';
 import {TranslateModule, TranslateService } from '@ngx-translate/core';
 

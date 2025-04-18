@@ -14,7 +14,6 @@ export class TaskService {
 
   constructor(private http: HttpClient) {}
 
-  //taskCRUD
   getTasks(taskList_Id: number): Observable<Task[]> {
     return this.http.get<Task[]>(
       `${this.apiUrl}/tasks?taskList_Id=${taskList_Id}`);
@@ -28,7 +27,7 @@ export class TaskService {
   deleteTask(task_Id: number): Observable<void> {
     return this.http.delete<void>(`${this.apiUrl}/tasks/${task_Id}`);
   }
-  //tasklistCRUD
+  
   getTaskLists(): Observable<TaskList[]>{
     return this.http.get<TaskList[]>(`${this.apiUrl}/tasklists`);
   }
@@ -39,7 +38,6 @@ export class TaskService {
     return this.http.put<TaskList>(
       `${this.apiUrl}/tasklists/${updatedTaskList.list_Id}`,updatedTaskList);
   }
-  // specifically, this is/will be a cascading delete executed on backend
    deleteTaskList(list_Id: number): Observable<void> {
      return this.http.delete<void>(`${this.apiUrl}/tasklists/${list_Id}`);
    }

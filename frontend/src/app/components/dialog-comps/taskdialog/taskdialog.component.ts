@@ -19,12 +19,10 @@ import { TranslateModule } from '@ngx-translate/core';
 })
 export class TaskdialogComponent implements OnInit {
 
-  @Input() task: Task | null = null // IF task = editing, IF nothing = creating
+  @Input() task: Task | null = null
   @Input() taskListId: number | null = null
   @Output() save = new EventEmitter<Task>()
   @Output() cancel = new EventEmitter<void>()
-
-  //check when testing = see if when it edits, it loads the data of the task
 
   constructor( @Optional() public dialogRef: MatDialogRef<TaskdialogComponent>) { }
 
@@ -41,9 +39,8 @@ export class TaskdialogComponent implements OnInit {
     color: '#ffffff'
   }
 
-  //look up SimpleChanges a bit more
   ngOnChanges(changes: SimpleChanges): void{
-    if(this.task){ //task cloning for when we edit
+    if(this.task){
       this.localTask = {...this.task}
       if(!this.localTask.color){
         this.localTask.color = '#ffffff'

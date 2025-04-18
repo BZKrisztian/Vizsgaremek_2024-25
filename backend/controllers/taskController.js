@@ -42,7 +42,7 @@ exports.updateTask = async (req, res) => {
     const task = await Task.findByPk(id);
     if (!task) return res.status(404).json({ message: 'Task not found' });
 
-    // Added ownership validation :P
+    // Ownership validation
     if (task.owner_Id !== req.user.id) {
       return res.status(403).json({ message: 'You are not authorized to update this task' });
     }

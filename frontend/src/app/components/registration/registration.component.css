@@ -73,8 +73,4 @@
   flex-direction: column;
   box-sizing: border-box;
   gap: 0.4rem;
-  /* 
-  word-wrap: break-word;
-  overflow-wrap: anywhere;
-  word-break: break-word; */
 }

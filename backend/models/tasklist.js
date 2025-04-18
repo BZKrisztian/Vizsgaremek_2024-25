@@ -25,6 +25,7 @@ module.exports = (sequelize, DataTypes) => {
     },
     owner_Id: {
       type: DataTypes.INTEGER,
+      allowNull: false,
     },
   }, {
     timestamps: true,

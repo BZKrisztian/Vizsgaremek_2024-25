@@ -5,7 +5,6 @@
     [(ngModel)]="searchTerm"
   />
 
-  <!-- Admins Table -->
   <div class="admin-users scrollable-table">
     <h4>{{ 'Texts.Pages.Overseer.AdminList' | translate }}</h4>
     <p *ngIf="errorMessage">{{ errorMessage | translate }}</p>
@@ -37,14 +36,12 @@
     </table>
   </div>
 
-  <!-- Load Button -->
   <div *ngIf="!usersLoaded" class="load-users-wrapper">
     <button (click)="loadRegularUsers()">
       {{ 'Buttons.LoadRegularUsers' | translate }}
     </button>
   </div>
 
-  <!-- Regular Users Table -->
   <div class="regular-users scrollable-table" *ngIf="usersLoaded">
     <h4>{{ 'Texts.Pages.Overseer.UserList' | translate }}</h4>
     <table>

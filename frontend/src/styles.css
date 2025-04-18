@@ -90,14 +90,14 @@ button:hover {
 
 /* Angular Material overlay hierarchy */
 .cdk-overlay-container {
-  z-index: 2500 !important;  /* ⬆️ must be above modal */
+  z-index: 2500 !important;  /*  must be above modal */
   position: fixed !important;
 }
 
 .cdk-overlay-pane {
-  z-index: 2550 !important;  /* ⬆️ pane inside container */
+  z-index: 2550 !important;  /*  pane inside container */
 }
 
 .mat-datepicker-content {
-  z-index: 2600 !important;  /* ⬆️ actual calendar box */
+  z-index: 2600 !important;  /*  actual calendar box */
 }

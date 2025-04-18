@@ -41,7 +41,7 @@ exports.register = async (req, res) => {
       return res.status(400).json({ message: 'Username is already in use' });
     }
 
-    // Validate password (example: at least 8 characters, one uppercase, one digit)
+    // Validate password
     if (!/^(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,}$/.test(password)) {
       return res.status(400).json({
         message: 'Password must be at least 8 characters with one uppercase letter and one number.'

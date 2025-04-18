@@ -1,4 +1,3 @@
-// api/testConnection.js
 const sequelize = require('./config/database');
 
 sequelize.authenticate()

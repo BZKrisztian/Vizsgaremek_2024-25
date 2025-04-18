@@ -56,7 +56,7 @@ export class AppComponent {
   }
 
   applyWallpaper(wallpaper: string): void {
-    const path = `url('assets/images/${wallpaper}')`; // ← FIXED HERE
+    const path = `url('assets/images/${wallpaper}')`;
     document.body.style.backgroundImage = path;
     document.body.style.backgroundSize = 'cover';
     document.body.style.backgroundPosition = 'center';

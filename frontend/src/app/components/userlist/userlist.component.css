@@ -75,7 +75,6 @@ td .action-buttons button {
   text-overflow: ellipsis;
 }
 
-/* Mobile Styles */
 @media (max-width: 600px) {
   .userlist-container {
     padding: 1rem;
@@ -88,9 +87,6 @@ td .action-buttons button {
     margin-bottom: 1rem;
     width: 100%;
     box-sizing: border-box;
-
-    /* No negative margins, no viewport width hacks */
-    /* We stay within the container boundaries */
   }
 
   table {
