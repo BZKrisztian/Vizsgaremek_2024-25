@@ -1,0 +1,103 @@
+:root {
+  --header-height: 60px;
+  --default-gap: 1rem;
+  --max-content-width: 1200px;
+}
+
+/* Reset and global styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+
+html, body {
+  height: 100vh;
+  background: url('/assets/images/city.jpg') no-repeat center center fixed;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  max-width: 100vw;
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+h1, h2, h3 {
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+}
+
+h1 {
+  font-weight: 700;
+  font-size: 2.2rem;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+  padding-bottom: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+h2, h3 {
+  font-weight: 600;
+  font-size: 1.5rem;
+  padding-left: 0.75rem;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+label {
+  font-weight: bold;
+  text-shadow: 1px 1px 1px rgba(0,0,0,0.2);
+  font-size: 1rem;
+  letter-spacing: 0.02em;
+  margin-bottom: 0.2rem;
+}
+
+
+
+
+button {
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 16px;
+  background-color: #3498db;
+  color: white;
+  transition: background 0.3s;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+.scrollable {
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+
+
+
+/* Angular Material and overlay tweaks */
+/* Ensure modal dialog is below */
+.taskdialog-container {
+  z-index: 2200; /* already defined */
+}
+
+/* Angular Material overlay hierarchy */
+.cdk-overlay-container {
+  z-index: 2500 !important;  /* ⬆️ must be above modal */
+  position: fixed !important;
+}
+
+.cdk-overlay-pane {
+  z-index: 2550 !important;  /* ⬆️ pane inside container */
+}
+
+.mat-datepicker-content {
+  z-index: 2600 !important;  /* ⬆️ actual calendar box */
+}

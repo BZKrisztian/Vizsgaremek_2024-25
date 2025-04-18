@@ -1,0 +1,26 @@
+<button
+  class="tasklist-toggle"
+  (click)="toggleTaskListsVisibility()"
+  [title]="'Texts.Pages.Homepage.' + (showHomepageContent ? 'HideHomepageContent' : 'ShowHomepageContent') | translate">
+  <span class="material-icons">
+    {{ showHomepageContent ? "visibility" : "visibility_off" }}
+  </span>
+</button>
+
+<div class="homepage" *ngIf="showHomepageContent">
+  <div class="user-greeting">
+    <h2>{{ 'Texts.Pages.Homepage.Greeting' | translate }} {{ currentUsername }} :D</h2>
+  </div>
+  <div class="task-alert-container">
+    <div *ngIf="hasTasksDue4Today" class="task-alert">
+      <p>{{ 'Texts.Pages.Homepage.TaskDueToday' | translate }}</p>
+    </div>
+    <div *ngIf="hasExpiredTasks" class="task-alert">
+      <p>{{ 'Texts.Pages.Homepage.TaskExpired' | translate }}</p>
+    </div>
+  </div>
+
+  <h1>{{ 'Texts.Pages.Homepage.YourTaskLists' | translate }}</h1>
+
+  <app-task-list (taskListGotUpdate)="check4TasksDueToday()"></app-task-list>
+</div>

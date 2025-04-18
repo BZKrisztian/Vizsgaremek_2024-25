@@ -1,0 +1,10 @@
+<div class="confirmdialog-container">
+  <h2 mat-dialog-title>{{ data.title }}</h2>
+  <mat-dialog-content>
+    <p>{{ data.message }}</p>
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <button mat-button color="warn" (click)="onDeleteConfirm()">{{ 'Buttons.Yes' | translate }}</button>
+    <button mat-button (click)="onCancel()">{{ 'Buttons.No' | translate }}</button>
+  </mat-dialog-actions>
+</div>

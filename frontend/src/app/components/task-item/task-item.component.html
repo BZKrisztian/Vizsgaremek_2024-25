@@ -1,0 +1,47 @@
+<div
+  class="task-item"
+  [class.completed]="task.task_Status"
+  [class.priority-high]="task.task_Priority === 'high'"
+  [class.priority-medium]="task.task_Priority === 'medium'"
+  [class.priority-low]="task.task_Priority === 'low'"
+  [class.expired]="isExpired"
+  [style.background]="task.color || 'transparent'"
+>
+
+  
+  <h4 [class.task-completed]="task.task_Status">{{ task.task_Title }}</h4>
+  <p *ngIf="task.task_Description">{{ task.task_Description }}</p>
+  <p>
+    {{ 'Texts.Components.TaskItem.Priority' | translate }} ||
+    <ng-container [ngSwitch]="task.task_Priority">
+      <span *ngSwitchCase="'low'">{{ 'Texts.Components.TaskItem.Low' | translate }}</span>
+      <span *ngSwitchCase="'medium'">{{ 'Texts.Components.TaskItem.Medium' | translate }}</span>
+      <span *ngSwitchCase="'high'">{{ 'Texts.Components.TaskItem.High' | translate }}</span>
+      <span *ngSwitchDefault>{{ task.task_Priority }}</span>
+    </ng-container>
+  </p>
+  <p *ngIf="task.due_Date">
+    {{ 'Texts.Components.TaskItem.DueDate' | translate }}: {{ task.due_Date | date: 'dd/MM/yyyy' }}
+  </p>
+  <div *ngIf="showDates" class="metadata-fields">
+    <p>{{ 'Texts.Components.TaskItem.CreationDate' | translate }}: {{ task.creation_Date | date: 'short' }}</p>
+    <p>{{ 'Texts.Components.TaskItem.UpdatedAt' | translate }}: {{ task.update_Date | date: 'short' }}</p>
+  </div>
+
+
+  
+  <div class="task-buttons">
+    <button (click)="toggleViewDate()" class="material-icons" [title]="'Buttons.' + (showDates ? 'HideDates' : 'ShowDates') | translate">
+      {{ showDates ? 'visibility_off' : 'visibility' }}
+    </button>
+    <button (click)="completionToggle()" [title]="'Texts.Components.TaskItem.ToggleCompletion' | translate">
+      <span class="material-icons">check_circle</span>
+    </button>
+    <button (click)="edit()" [title]="'Buttons.EditTask' | translate" [disabled]="task.task_Status">
+      <span class="material-icons">edit</span>
+    </button>
+    <button (click)="delete()" [title]="'Buttons.DeleteTask' | translate">
+      <span class="material-icons">delete</span>
+    </button>
+  </div>
+</div>

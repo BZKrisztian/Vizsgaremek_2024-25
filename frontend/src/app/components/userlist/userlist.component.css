@@ -1,0 +1,116 @@
+.userlist-container {
+  width: 95%;
+  max-width: 1200px;
+  margin: 2rem auto;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.3);
+  overflow-x: visible; /* Let children scroll independently */
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.userlist-container input {
+  width: 100%;
+  max-width: 400px;
+  padding: 10px;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+.scrollable-table {
+  max-height: 60vh; /* adjust as needed */
+  overflow-y: auto;
+  overflow-x: auto;
+  padding-bottom: 1rem;
+  margin-bottom: 2rem;
+
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background: white;
+
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Core table layout */
+table {
+  width: 100%;
+  min-width: 600px;
+  max-width: 100%;
+  border-collapse: collapse;
+  box-sizing: border-box;
+}
+
+th, td {
+  padding: 8px 12px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+  word-break: break-word;
+  white-space: normal;
+  max-width: 250px;
+}
+
+thead {
+  background-color: #f0f0f0;
+}
+
+/* Force clean action buttons layout */
+td .action-buttons {
+  display: flex;
+  gap: 6px;
+  flex-wrap: nowrap;
+}
+
+td .action-buttons button {
+  white-space: nowrap;
+  padding: 6px 10px;
+  font-size: 13px;
+  min-width: 70px;
+  max-width: 90px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Mobile Styles */
+@media (max-width: 600px) {
+  .userlist-container {
+    padding: 1rem;
+    overflow-x: visible; /* Let scrollable-table manage it */
+  }
+
+  .scrollable-table {
+    overflow-x: auto;
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+    width: 100%;
+    box-sizing: border-box;
+
+    /* No negative margins, no viewport width hacks */
+    /* We stay within the container boundaries */
+  }
+
+  table {
+    min-width: 600px; /* Keep this so wide tables can scroll */
+    font-size: 14px;
+  }
+
+  th, td {
+    font-size: 13px;
+    padding: 6px 8px;
+    max-width: unset;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+
+
+  td .action-buttons button {
+    font-size: 12px;
+    padding: 5px 8px;
+  }
+}
+

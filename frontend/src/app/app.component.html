@@ -1,0 +1,31 @@
+<header class="main-header">
+  <!-- LEFT ZONE: Back Button -->
+  <div class="header-left">
+    <button *ngIf="showBackButton" (click)="goBack()">{{ 'Buttons.Back' | translate }}</button>
+    <button *ngIf="LogInCheck()" (click)="logoutFromSite()">{{ 'Buttons.LogOut' | translate }}</button>
+  </div>
+
+  <!-- RIGHT ZONE: Auth & Language -->
+  <div class="header-right">
+
+    <!-- Wallpaper Switcher -->
+    <div *ngIf="LogInCheck()" class="wallpaper-selector">
+      <select [(ngModel)]="selectedWallpaper" (change)="handleWallpaperChange($event)">
+        <option *ngFor="let wp of wallpapers" [value]="wp.file">{{ wp.nameKey | translate }}</option>
+      </select>
+    </div>
+
+    <button *ngIf="LogInCheck() && currentRoute.includes('profile')" routerLink="/homepage">{{ 'Buttons.BackToHomepage' | translate }}</button>
+
+    <button *ngIf="AdminCheck()" (click)="switchPage()">
+      {{ currentRoute.includes('overseer') ? ('Buttons.GoToHomepage' | translate) : ('Buttons.GoToOverseer' | translate) }}
+    </button>
+    <button *ngIf="LogInCheck()" routerLink="/profile">{{ 'Buttons.MyProfile' | translate }}</button>
+
+    <button (click)="switchLanguage('en')">EN</button>
+    <button (click)="switchLanguage('hu')">HU</button>
+  </div>
+</header>
+
+<!-- Routed page views -->
+<router-outlet></router-outlet>

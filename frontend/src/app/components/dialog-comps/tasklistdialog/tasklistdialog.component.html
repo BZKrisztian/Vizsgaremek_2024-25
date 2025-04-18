@@ -1,0 +1,32 @@
+<div class="tasklistdialog-container">
+  <h3 *ngIf="taskList; else addMode">{{ 'Texts.Components.TaskList.EditTitle' | translate }}</h3>
+  <ng-template #addMode>
+    <h3>{{ 'Texts.Components.TaskList.AddTitle' | translate }}</h3>
+  </ng-template>
+  <form (ngSubmit)="onSave()">
+    <label for="listTitle">{{ 'Texts.Components.TaskList.TitleLabel' | translate }}</label>
+    <input type="text" name="Title" id="listTitle" required maxlength="50"
+      [(ngModel)]="localTaskList.list_Title">
+      <small class="character-count">
+        {{ 'Texts.Components.TaskItem.CharactersLeft' | translate:{count: 50 - (localTaskList.list_Title.length || 0)} }}
+      </small>
+
+    <label for="listDescription">{{ 'Texts.Components.TaskList.DescriptionLabel' | translate }}</label>
+    <textarea name="Description" id="listDescription" maxlength="200"
+      [(ngModel)]="localTaskList.list_Description"></textarea>
+      <small class="character-count">
+        {{ 'Texts.Components.TaskItem.CharactersLeft' | translate:{count: 200 - (localTaskList.list_Description?.length || 0)} }}
+      </small>
+
+      <div class="color-field-wrapper">
+        <label for="listColor">{{ 'Texts.Components.TaskItem.Color' | translate }}</label>
+        <input type="color" name="color" id="listColor"
+        [(ngModel)]="localTaskList.color" [value]="localTaskList.color">
+      </div>
+
+    <div class="modal-buttons">
+      <button type="submit">{{ 'Buttons.Save' | translate }}</button>
+      <button type="button" (click)="onCancel()">{{ 'Buttons.Cancel' | translate }}</button>
+    </div>
+  </form>
+</div>

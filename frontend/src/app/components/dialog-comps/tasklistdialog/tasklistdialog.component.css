@@ -1,0 +1,82 @@
+.tasklistdialog-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.3);
+  z-index: 2200;
+
+  /* Responsive width scaling */
+  width: 95%;
+  max-width: 500px;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.tasklistdialog-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* Shared input style for regular fields */
+.tasklistdialog-container input:not([type="color"]),
+.tasklistdialog-container textarea,
+.tasklistdialog-container select {
+  width: 100%;
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+/* Dedicated style for the color input */
+.tasklistdialog-container input[type="color"] {
+  width: 72px;
+  height: 36px;
+  padding: 2px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  background: white;
+  cursor: pointer;
+}
+.color-field-wrapper{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.character-count{
+  font-size: 0.75rem;
+  color: #555;
+  text-align: right;
+  margin-top: -0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.modal-buttons {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+@media (max-width: 600px) {
+  .modal-buttons {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .modal-buttons button {
+    width: 100%;
+  }
+
+  .tasklistdialog-container {
+    width: 90%;
+  }
+}

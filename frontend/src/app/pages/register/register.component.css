@@ -1,0 +1,16 @@
+:host {
+  display: block;
+  margin-top: var(--header-height);
+}
+
+.registration-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+
+  /* PREVENT WIDTH EXPANSION */
+  width: 100%;
+  max-width: 100vw;
+  box-sizing: border-box;
+}
