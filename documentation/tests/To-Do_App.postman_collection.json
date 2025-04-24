@@ -1,0 +1,517 @@
+{
+	"info": {
+		"_postman_id": "467d2cde-1566-4f6a-8719-f0832b1eda95",
+		"name": "To-Do_App",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "44364029",
+		"_collection_link": "https://drdrugtor-2428980.postman.co/workspace/DrDrugtor's-Workspace~6aca9c26-ad9d-4343-80c7-f3d905129113/collection/44364029-467d2cde-1566-4f6a-8719-f0832b1eda95?action=share&source=collection_link&creator=44364029"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Register User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"userName\": \"newuser1234\",\r\n  \"email\": \"newuser1234@example.com\",\r\n  \"password\": \"Password1\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/register",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login User",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const json = pm.response.json();\r",
+									"pm.collectionVariables.set(\"authToken\", json.token);\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"newuser1234@example.com\",\r\n  \"password\": \"Password1\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/login",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Verify Email",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/verify-email?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjAsImlhdCI6MTc0NTQ3NzE4MiwiZXhwIjoxNzQ1NTYzNTgyfQ.G7mBowUVJ6jOFhGh6p7r6YAVCdZmT6cI_arQOKtBjRk",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"verify-email"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjAsImlhdCI6MTc0NTQ3NzE4MiwiZXhwIjoxNzQ1NTYzNTgyfQ.G7mBowUVJ6jOFhGh6p7r6YAVCdZmT6cI_arQOKtBjRk"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Admin Login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const json = pm.response.json();\r",
+									"pm.collectionVariables.set(\"authToken\", json.token);\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"cheeseman420@gmail.com\",\r\n  \"password\": \"Asdasd112\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/login",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "Get current User",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/users/me",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"users",
+								"me"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update User(self)",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"userName\": \"UpdatedUser123\",\r\n  \"email\": \"updateduser123@example.com\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/users/profile",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"users",
+								"profile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Self(from Profile)",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/users/self",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"users",
+								"self"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "TaskLists",
+			"item": [
+				{
+					"name": "Get Tasklists",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/tasklists",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"tasklists"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Post a Tasklist",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"list_Title\": \"Daily Habits\",\r\n  \"list_Description\": \"Morning + Evening Routine\",\r\n  \"color\": \"#aed581\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/tasklists",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"tasklists"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Modify a Tasklist",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"list_Title\": \"Updated Habits\",\r\n  \"list_Description\": \"Improved version\",\r\n  \"color\": \"#81d4fa\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/tasklists/25",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"tasklists",
+								"25"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a Tasklist",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/tasklists/25",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"tasklists",
+								"25"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Tasks",
+			"item": [
+				{
+					"name": "Get Tasks",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/tasks?taskList_Id=25",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"tasks"
+							],
+							"query": [
+								{
+									"key": "taskList_Id",
+									"value": "25"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Post a Task",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"taskList_Id\": 25,\r\n  \"task_Title\": \"Hardcore drugs\",\r\n  \"task_Description\": \"All of them\",\r\n  \"task_Priority\": \"medium\",\r\n  \"color\": \"#ffab91\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/tasks",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"tasks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Modify a Task",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"task_Title\": \"Meditate deeply\",\r\n  \"task_Description\": \"Try 15 minutes\",\r\n  \"task_Status\": true,\r\n  \"task_Priority\": \"medium\",\r\n  \"due_Date\": \"2025-04-26T00:00:00.000Z\",\r\n  \"color\": \"#ffcc80\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/tasks/82",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"tasks",
+								"82"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a Task",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/tasks/82",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"tasks",
+								"82"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Admin",
+			"item": [
+				{
+					"name": "Get Users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/users",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Promotion/Demotion",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/users/15/toggle-admin",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"users",
+								"15",
+								"toggle-admin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get a User's Tasklists and Tasks",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/users/admin/users/15/tasklists",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"users",
+								"admin",
+								"users",
+								"15",
+								"tasklists"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete user(from Admin)",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/users/18",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"users",
+								"18"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{authToken}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

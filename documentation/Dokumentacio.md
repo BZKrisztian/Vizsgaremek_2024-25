@@ -12,7 +12,7 @@ Az alkalmazás támogatja a felhasználói regisztrációt és bejelentkezést, 
 
 - Visual Studio Code – a frontend és backend fejlesztéséhez
 - XAMPP – a MySQL adatbázis kezeléséhez (phpMyAdmin)
-- Insomnia / Postman – manuális API teszteléshez
+- Postman – manuális API teszteléshez
 
 ## 🧩 Felhasznált technológiák
 
@@ -52,7 +52,7 @@ Itt két lehetőség közül választhatunk:
 - **Regisztráció** – új fiók létrehozása
 - **Bejelentkezés** – meglévő fiók elérése
 
-[KÉP: Entry oldal gombokkal]
+![alt text](doc_images/image.png)
 
 ### 📝 2. Regisztráció
 
@@ -65,7 +65,7 @@ A regisztrációs oldalon egy űrlapot kell kitölteni, amely a következő mez�
 
 A sikeres regisztráció után az alkalmazás egy visszaigazoló e-mailt küld a megadott címre.
 
-[KÉP: Regisztrációs űrlap]
+![alt text](doc_images/image-1.png)
 
 ### ✉️ 3. E-mail megerősítés
 
@@ -73,7 +73,7 @@ A felhasználó az e-mailben található linkre kattintva megerősíti a fiókj�
 
 Ezután beléphet az alkalmazásba.
 
-[KÉP: Sikeres/hibás e-mail megerősítés nézet]
+![alt text](doc_images/image-2.png)
 
 ### 🔐 4. Bejelentkezés
 
@@ -81,7 +81,7 @@ Bejelentkezéskor az e-mail és jelszó megadása kötelező. A rendszer csak ak
 
 Sikeres belépés után a felhasználót átirányítja a **homepage** oldalra.
 
-[KÉP: Bejelentkezési oldal]
+![alt text](doc_images/image-3.png)
 
 ### 🏠 5. Főoldal (Homepage)
 
@@ -97,7 +97,10 @@ Lehetséges műveletek:
 - Dátum, prioritás és státusz szerinti rendezés
 - Keresés feladatonként listán belül
 
-[KÉP: Homepage + feladatlista nézet]
+![alt text](doc_images/image-4.png)
+![alt text](doc_images/image-5.png)
+![alt text](doc_images/image-6.png)
+![alt text](doc_images/image-7.png)
 
 ### ⚙️ 6. Profil módosítás
 
@@ -106,11 +109,11 @@ A felhasználó a „Profilom” oldalon módosíthatja:
 - Felhasználónevét
 - E-mail címét
 - Jelszavát (új megadásával)
-- Saját fiókját törölheti is (harakiri gomb)
+- Saját fiókját is törölheti
 
 Törléskor figyelmeztetések jelennek meg. Adminok nem törölhetik saját magukat.
 
-[KÉP: Profil szerkesztés és harakiri gomb]
+![alt text](doc_images/image-8.png)
 
 ## 🛡️ Admin felhasználó
 
@@ -118,7 +121,7 @@ Törléskor figyelmeztetések jelennek meg. Adminok nem törölhetik saját magu
 
 Ha egy felhasználó admin jogosultsággal rendelkezik, a belépés után lehetősége van az **Overseer** oldal elérésére.
 
-[KÉP: Admin gombok a fejlécben]
+![alt text](doc_images/image-9.png)
 
 ### 🧑‍💼 2. Overseer oldal
 
@@ -130,9 +133,8 @@ Az overseer nézetben az admin a következőket teheti meg:
 - Felhasználók törlése (kivéve saját magát és root admint)
 - Felhasználók részletes megtekintése (Inspect gomb)
 
-[KÉP: Overseer oldal admin és user táblázattal]
-
-Ez a rész részletesen bemutatta, hogyan használja egy felhasználó vagy admin az alkalmazást. A képek segítségével vizuálisan is könnyen követhető lesz a felület.
+![alt text](doc_images/image-10.png)
+(A valós, nem teszt célra szánt e-mail-címek ki lettek vágva a képről.)
 
 ---
 
@@ -149,7 +151,7 @@ Ez a rész részletesen bemutatta, hogyan használja egy felhasználó vagy admi
     - `userlist/UserlistComponent`: Az admin oldal felhasználókezelő táblázata.
     - `login/LoginComponent`: Bejelentkezési űrlap Reactive Form alapú validációval, szerver oldali visszajelzésekkel.
     - `registration/RegistrationComponent`: Regisztrációs űrlap validátorokkal, jelszó-ellenőrzéssel és hibakezeléssel.
-    - `profile/ProfileComponent`: A felhasználó profiljának szerkesztésére szolgáló űrlap, frissítési lehetőséggel és harakiri törléssel.
+    - `profile/ProfileComponent`: A felhasználó profiljának szerkesztésére szolgáló űrlap, frissítési lehetőséggel és törléssel.
 - **dialog-components/** – Interaktív felugró ablakok.
     - `dialog-comps/taskdialog/TaskdialogComponent`: Új feladat létrehozása vagy meglévő szerkesztése dialógusban.
     - `dialog-comps/tasklistdialog/TasklistdialogComponent`: Új feladatlista létrehozása vagy szerkesztése dialógusban.
@@ -347,7 +349,7 @@ Ez a rész részletesen bemutatta, hogyan használja egy felhasználó vagy admi
     - `ngOnDestroy()`: Lezárja az összes aktív observable-t memóriazárás elkerülése érdekében.
     - `passwordsMustMatch(group)`: Ellenőrzi, hogy az új jelszó és a megerősítő mező egyezik-e (validátor).
     - `onSubmit()`: Profiladatok frissítését végzi, hibakezeléssel és visszajelzéssel.
-    - `onClickDeleteAccount()`: Harakiri funkció, saját fiók törlésének megerősítése és végrehajtása.
+    - `onClickDeleteAccount()`: Törlés funkció, saját fiók törlésének megerősítése és végrehajtása.
 
 - **registration.component.ts**
     - `ngOnInit()`: Inicializálja a regisztrációs űrlapot validátorokkal.
@@ -630,5 +632,5 @@ Ez a rész részletesen bemutatta, hogyan használja egy felhasználó vagy admi
 
 # 5. Tesztelés
 
-A backend végpontokat **Insomnia** segítségével manuálisan teszteltük. Lefedésre kerültek a regisztráció, belépés, feladat- és lista műveletek, valamint az admin funkciók — minden fontos útvonal kipróbálásra került. A teljes tesztkészlet külön `.json` fájlban van/lesz csatolva.
+A backend végpontokat **Postman** segítségével manuálisan teszteltük. Lefedésre kerültek a regisztráció, belépés, feladat- és lista műveletek, valamint az admin funkciók — minden fontos útvonal kipróbálásra került. A teljes tesztkészlet külön `.json` fájlban van csatolva.
 
